@@ -32,3 +32,5 @@ Conditions d'acceptation des commits
 ====================================
 
 Il faut distinguer les enrichissements développés pour un besoin particulier et les améliorations réellement utiles apportées à Bredele. Si vosu avez trouvé le moyen génial d'afficher un titre de chapitre aux couleurs arc-en-ciel, c'est très bien, mais dans ce cas, forkez plutôt Bredele dans une branche "arc-en-ciel" ou faites un autre dépôt. Si par contre vous constatez des choses inutiles (fort probable), qu'un paquet est mal utilisé, qu'il faut mettre à jour telle fonction, qu'il est possible de simplifier le code, ou que la mise en page pourrait être améliorée suivant des critères valides, alors vous êtes plus que bienvenus !
+
+N'oubliez pas de documenter vos commits de manière exhaustive : il faut penser aux débutants qui ne maîtrisent pas forcément les arcanes de LATeX. L'ensemble doit rester simple à l'utilsiation.
