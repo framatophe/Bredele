@@ -15,7 +15,7 @@ Les points forts de BREDELE :
 Licence
 =========
 
-La classe Bredele est placée sous licence GNU GPL v.3. Copyright 2008, 2010, 2014 : Christophe Masutti 
+La classe Bredele est placée sous licence GNU GPL v.3. Copyright 2008, 2010, 2014 : Christophe Masutti (voir fichier bredele.cls).
 
 Histoire
 ==========
