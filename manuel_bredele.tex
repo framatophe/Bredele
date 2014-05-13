@@ -1,0 +1,271 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[greek, french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{example}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage{showexpl}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage{listings}
+\usepackage[breaklinks,colorlinks,linkcolor=black,citecolor=black, pagecolor=black,urlcolor=black]{hyperref}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{soul}
+\usepackage{color}
+\selectlanguage{francais}
+\frenchspacing
+\FrenchFootnotes
+
+
+
+
+\title{Utilisation de la classe Bredele pour \LaTeX}
+\author{Christophe Masutti}
+\date{Version 3.0, mai 2014}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+La classe Bredele est une classe \LaTeX{} destinée à l'élaboration de thèses de doctorat, essentiellement (mais non exclusivement) en sciences humaines. Bredele est basée sur la classe [book]. Les documents se compilent de préférence avec \verb!pdflatex!. Encodage utilisé : \textbf{UTF-8}.
+
+La classe Bredele est placée sous licence \textit{GNU GPL v.3}. Copyright 2010 : Christophe Masutti (voir fichier \verb!bredele.cls!).
+
+\section{Mise en page générale}
+
+\subsection{Interligne}
+La mise en page cherche à respecter les pratiques habituelles de présentation. L'interligne est défini à 1,5 pour tout le document. Les citations et vers (commandes \verb!\quote!, \verb!\quotation! et \verb!\verse!) utilisent un interligne simple.
+
+\subsection{Francisation}
+L'ensemble est «~francisé~», avec l'utilisation de \verb!french!, \verb!frenchspacing!, \verb!FrenchFootnotes!
+
+\subsection{Page de garde}
+La page de garde contient les indications d'usage. Elle s'obtient avec la commande \verb!\maketitle!, placée \underline{après} le préambule. Il convient d'utiliser les commandes suivantes \underline{dans} le préambule:
+
+\begin{itemize}
+\item \verb!\author! : renseigner votre prénom et votre nom (auteur),
+\item \verb!\title! : renseigner le titre de votre thèse,
+\item \verb!\date! : renseigner ici la date de soutenance,
+\item \verb!\lesoustitre! : renseigner le sous-titre (le cas échéant),
+\item \verb!\discipline! : renseigner la section disciplinaire du doctorat,
+\item \verb!\dirdethese! : renseigner le prénom et le nom du (de la) directeur(rice) de thèse,
+\item \verb!\titredudirdethese! : renseigner le titre du (de la) directeur(rice) de thèse,
+\item \verb!\jury! : renseigner les noms et titres des membres du jury (sur plusieurs lignes généralement),
+\item \verb!\unite! : nom du département / laboratoire / institut etc.,
+\item \verb!\ecoledoc! : nom de l'école doctorale,
+\item \verb!\logouniversite! : renseigner le nom du fichier image du logo de l'université,
+\item \verb!\scalelogouniversite! : renseigner l'échelle du logo de l'université,
+\item \verb!\logolabo! : renseigner le nom du fichier image du logo du labo,
+\item \verb!\scalelogolabo! : renseigner l'échelle du logo du labo.
+\end{itemize} 
+
+\paragraph{À propos des logos :}  le traitement du nom de fichier et de l'échelle est obtenu dans la classe Bredele via la commande \verb!includegraphics! ([scale=xxx] et \{nom du fichier\}).
+
+\subsection{Remerciements}
+Il est d'usage de réserver une page de remerciements. Il s'agit d'un chapitre «~caché~» juste après la page de garde (en page de droite).
+
+\subsection{Le sommaire}
+Il est d'usage d'indiquer un sommaire au début du document et la table des matières à la fin. Le sommaire peut se contenter d'un seul niveau de titre. Renseignez vous sur le paquet \verb!shorttoc! utilisé dans la classe Bredele: \url{http://tug.ctan.org/tex-archive/macros/latex/contrib/shorttoc/}
+
+\subsection{Conseil pour le début de votre document}
+Il est conseillé de débuter votre document de la manière suivante:
+
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Début du document]
+\begin{document}
+
+\maketitle
+
+\clearemptydoublepage
+\chapter*{Remerciements}
+\thispagestyle{empty}
+.....Les remerciements....
+
+\clearemptydoublepage
+\frontmatter
+
+
+\clearemptydoublepage
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+..... texte de l'introduction.....
+
+
+\clearemptydoublepage
+\shorttableofcontents{Sommaire}{0}
+
+\clearemptydoublepage
+\mainmatter
+
+\clearemptydoublepage
+\part{Ceci est le titre de la première partie}
+
+etc.
+\end{Verbatim}
+
+Explication de la commande \verb!\clearemptydoublepage! ci-dessous.
+
+\subsection{les en-têtes}
+Les en-têtes sont gérées avec \verb!Fancyhdr!. Elles prennent en compte l'alternance des pages droites et gauche.
+Pour gérer les titres trop longs pour l'en-tête, utilisez :
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Longs titres de chapitre]
+
+\chapter[Titre version courte]{Titre version longue}
+\end{Verbatim}
+
+Pour ne pas être gêné par des en-têtes sur des pages vides, par exemple sur les pages de gauche juste avant un nouveau chapitre, utilisez la commande \verb!\clearemptydoublepage!, ainsi :
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=clearemptydoublepage]
+
+\clearemptydoublepage
+\chapter{Titre du chapitre}
+\end{Verbatim}
+
+Pour ce qui concerne l'introduction, afin de ne pas être gêné par le fameux «~Chapitre 0~», procédez ainsi :
+
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Pour l'intro]
+\clearemptydoublepage
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\chaptermark{Introduction}
+\end{Verbatim}
+
+La commande \verb!\chaptermark{Introduction}! nous permet de conserver «~Introduction~» dans l'en-tête.
+
+\textbf{Note :} dans l'introduction, les titres de section ne sont pas numérotés et n'apparaissent pas dans les en-têtes de pages de droite.
+
+
+\subsection{Hyperref}
+\verb!hyperref! est utilisé pour tout le document, y compris la bibliographie. Les couleurs sont définies en noir, de manière à ne pas g\^ener l'impression. Vous pourrez avoir un signalement lors de la compilation : en effet, le paquet \verb!hyperref! est demandé deux fois : une fois comme paquet classique, valable pour tout le document, et une seconde fois dans les réglages de la bibliographie avec BibLaTeX. Ce dernier appel a pour effet de permettre à l'utilisateur de la version PDF de cliquer sur les ibid., idem et op. cit. pour se reporter aux occurences ainsi mentionnées.
+
+En éditant bredele.cls, afin d'éditer les propriétés du fichier PDF créé, vous pouvez ajouter dans \verb!hypersetup! les éléments suivants: 
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}]
+pdftitle={titre du document}, pdfauthor={auteur},
+pdfcreator={PdfLaTeX}, pdfkeywords={mots-clé},
+pdfsubject={sujet du document}
+\end{Verbatim}
+
+\newpage
+\section{La bibliographie}
+Nous proposons l'utilisation de \verb!BibLaTeX! pour la gestion de la bibliographie dans le document, y compris quelques petites modifications de manière à obtenir des virgules entre les différents champs, et quelques petites améliorations que vous pouvez à votre tour modifier en éditant bredele.cls. Reportez-vous au manuel de BibLaTeX si vous voulez modifier les paramètres de la bibliographie : \url{http://www.ctan.org/tex-archive/help/Catalogue/entries/biblatex.html}.
+
+ATTENTION : l'option \verb!backend=biber! est utilisée. En effet les dernières versions de biblatex préconisent l'option \verb!biber! pour profiter des dernières nouveautés. Si vous choisissez cette option (\verb!backend=biber!), il vous faut simplement compiler avec \verb!$biber nomdufichier! (sans le .tex). Si vous voulez en rester à bibtex, il vous suffit de placer \verb!backend=bibtex!.
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Réglage de la bibliographie dans le .cls]
+\RequirePackage
+[style=verbose-trad1,hyperref,backend=biber]{biblatex}
+
+\bibliography{biblio} %Nom du fichier bibtex à utiliser
+
+\defbibheading{primary}{\section*{Sources primaires}}
+
+\defbibheading{secondary}{\section*{Sources secondaires}}
+
+\end{Verbatim}
+
+«~Sources primaires~» et «~Sources secondaires~» ne sont ici que des exemples de mot-clé pour la gestion de la bibliographie et son affichage, ici, en deux sections. Vous pouvez modifier cela dans votre bibliographie et dans \verb!bredele.cls!. L'idée est de montrer qu'avec BibLaTeX, il est possible d'afficher des bibliographies en sections différenciées selon les mot-clés de la bibliographie. BibLaTeX permet bien d'autres fonctionnalités, en particulier dans le domaine des sciences humaines. Reportez-vous au manuel pour les utiliser.
+
+\subsection{Compilation}
+
+(sans oublier que l'on utilise \verb!biber!).
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Compilation avec la biblio]
+
+$ pdflatex <nomdufichier.tex>
+$ biber <nomdufichier>
+$ pdflatex <nomdufichier.tex>
+
+\end{Verbatim}
+
+\subsection{Utilisation}
+
+Ainsi configurée, la bibliographie permet d'obtenir un style de référencement classique de type 
+\begin{center}
+NOM, Prénom, \textit{Titre}, Lieu d'édition : Maison de publication, date. 
+\end{center}
+
+On utilisera aussi hyperref pour créer des liens. BibLaTeX gère tout seul les idem, ibidem, op. cit.
+
+Si vous utilisez les notes de bas de page pour insérer des références bibliographiques, avec, au besoin la précision de la page concernée entre crochets, procédez ainsi : 
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}]
+\footcite[228]{Doule1887}.
+\end{Verbatim}
+
+Vous pourrez obtenir parfois des éléments gênants lorsque vous citez un article à la page. En effet, au moins la première fois que l'article est cité (le reste du temps ibid, loc. cit, op. cit... ) Biblatex indiquera les pages de l'article en question suivi de la page à laquelle vous souhaitez faire référence. Vous pouvez alors obtenir quelque chose comme :
+
+Marie \textsc{Dugenou}, «~L'usage des virgules dans la Bible~», \textit{in}: \textit{Revue des ponctuations} 4.\textit{2}, p.~151--156, p.~15.
+
+Cela pourra être corrigé dans les versions ultérieures de Biblatex, en proposant des options. En attendant, le mieux à faire est de procéder ainsi :
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}]
+\footcite[voir \pno~154]{Dugenou}.
+\end{Verbatim}
+
+Et vous obiendrez :
+
+Marie \textsc{Dugenou}, «~L'usage des virgules dans la Bible~», \textit{in}: \textit{Revue des ponctuations} 4.\textit{2}, p.~151--156, voir p.~15.
+
+
+
+\subsection{Réglages}
+Par défaut, le nom du fichier de bibliographie à utiliser avec la classe Bredele est \verb!biblio.bib!. Vous pouvez bien sûr utiliser un nom différent à condition d'éditer \verb!bredele.cls! en conséquence.
+
+Par défaut, la classe Bredele propose une division de la bibliographie entre sources primaires et sources secondaires, en vue de son affichage à la fin de la thèse. Cette division s'effectue d'abord dans le fichier BibTeX en ajoutant des bons mot-clé dans les différents item de la bibliographie. Ici : «~primary~» et «~secondary~». Bien entendu, il vous est possible d'en utiliser d'autres, et même de créer davantage de divisions, par exemple en intégrant des sources archivistiques, etc. 
+
+L'affichage final de la bibliographie (le «~chapitre~» \textit{Bibliographie}), si l'on reprend ce que la classe Bredele propose par défaut, s'effectue ainsi :
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}]
+\clearemptydoublepage
+\backmatter
+
+\clearemptydoublepage
+\chapter*{Bibliographie}
+\addcontentsline{toc}{chapter}{Bibliographie}
+
+
+\nocite{*} 
+\printbibliography[heading=primary,keyword=primary]
+\newpage
+\nocite{*}
+\printbibliography[heading=secondary,keyword=secondary]
+
+\newpage
+\end{Verbatim}
+
+... Avec les sous-titres «~Sources primaires~» et «~Sources secondaires~», tels que définis sous forme de \verb!\section! dans le .cls grâce à \verb!\defbibheading!.
+
+\section{Les boîtes}
+
+Deux types de boites (encarts) peuvent être utilisées. 
+
+Les \verb!boitesimple! sont des encarts grisés, centrés.
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label= Une boite simple]
+\boitesimple{blablabla}
+\end{Verbatim}
+
+Les \verb!boitemagique! sont des encarts, avec bordure et titre d'encart.
+
+\begin{Verbatim}[frame=single, framerule=0.2mm, rulecolor=\color{gray}, label=Pour tracer une boite magique]
+\boitemagique{Titre de la boite}{Bla bla bla}
+\end{Verbatim}
+
+
+
+
+\end{document}
