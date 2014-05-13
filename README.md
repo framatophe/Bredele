@@ -12,6 +12,11 @@ Les points forts de BREDELE :
    * Rendu esthétique des titres de chapitres et parties,
    * Utilisation de la classe [book] avec toutes ses possibilités.
 
+Licence
+=========
+
+La classe Bredele est placée sous licence GNU GPL v.3. Copyright 2008, 2010, 2014 : Christophe Masutti 
+
 Histoire
 ==========
 
