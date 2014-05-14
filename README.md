@@ -5,7 +5,7 @@ Bredele est une classe LaTeX pour des thèses (ou mémoires) en sciences humaine
 
 Les points forts de BREDELE :
 
-   * Une mise en page de la page de garde, grâce à l'emploi de plusieurs commandes à renseigner soi-même,
+   * Une mise en page de la page de titre, grâce à l'emploi de plusieurs commandes à renseigner soi-même,
    * Une mise en page générale obéissant aux pratiques habituellement en vigueur dans la plupart des universités françaises,
    * L'emploi de BibLaTeX permettant une gestion très fine de la bibliographie,
    * Quelques réglages proposés par défaut pour faciliter l'emploi des options de BibLaTeX,
