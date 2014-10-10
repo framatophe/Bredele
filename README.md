@@ -20,7 +20,7 @@ La classe Bredele est placée sous licence GNU GPL v.3. Copyright 2008, 2010, 20
 Histoire
 ==========
 
-Bredele est le noms des petits gâteux alsaciens préparés traditionnellement lors des fêtes de fin d'année. C'est aussi la période propice où l'on passe de longues soirées d'hiver à améliorer des mises en pages tout en grignotant ces délicieux petits démons.
+Bredele est le noms des petits gâteaux alsaciens préparés traditionnellement lors des fêtes de fin d'année. C'est aussi la période propice où l'on passe de longues soirées d'hiver à améliorer des mises en pages tout en grignotant ces délicieux petits démons.
 
 Bredele répond à tous ceux qui souhaitent disposer d'une classe LaTeX pour leur travail sans pour autant avoir le temps de chercher pendant des heures comment configurer leur fichier de style. C'est aussi une classe qui montre combien LaTeX est outil indispensable pour qui veut efficacement rédiger un travail de doctorat (ou un mémoire). L'outil BibLaTeX qui est proposé ici à l'usage n'est utilisé en réalité qu'avec bien peu de ses nombreuses et spectaculaires fonctionnalités. De même, la mise en page n'est pas le résultat d'une recherche esthétique, simplement, elle répond aux usages courants. Sa simplicité permet cependant d'être enrichie selon les besoins particuliers des utilsiateurs.
 
