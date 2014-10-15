@@ -82,9 +82,9 @@
 
 \onehalfspacing %Interligne 1,5
 
-\RequirePackage{ifthen}
+\RequirePackage{ifthen} % Entrer valeurs booléennes et autres options
 
-\RequirePackage{csquotes}
+\RequirePackage{csquotes} % Assurer les guillemets français
 \frenchspacing
 \FrenchFootnotes
 
